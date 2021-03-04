@@ -1,0 +1,53 @@
+# Procesamiento de Lenguage Natural
+## Taller #2: Adquisición de textos
+
+- `[18 pts]` Descomprimir el archivo `.zip` de `python_books`
+
+import os
+from zipfile import ZipFile
+direccion = 'C:/Users/Administrador/Desktop/PNL/Talleres/python_books.zip'
+with ZipFile(direccion) as archivo:
+    archivo.extractall("C:/Users/Administrador/Desktop/PNL/Talleres/")
+    import shutil
+shutil.rmtree('C:/Users/Administrador/Desktop/PNL/Talleres/__MACOSX')
+for archivo in os.walk("C:/Users/Administrador/Desktop/PNL/Talleres/python_books"):
+    print(archivo)
+    for raiz, dirs, archivos in os.walk("C:/Users/Administrador/Desktop/PNL/Talleres/python_books"):
+    for a in archivos:
+        print(a)
+        
+- `[22 pts]` Leer cada uno de sus archivos
+pip install PyMuPDF
+import fitz
+
+doc1 = fitz.open('C:/Users/Administrador/Desktop/PNL/Talleres/python_books/Python - AWS.pdf')
+pagina = doc1.loadPage(0)
+texto = pagina.getText("text")
+print(texto)
+
+doc2 = fitz.open('C:/Users/Administrador/Desktop/PNL/Talleres/python_books/Python  Data Science Cookbook.pdf')
+pagina = doc2.loadPage(0)
+texto = pagina.getText("text")
+print(texto)
+
+doc3 = fitz.open('C:/Users/Administrador/Desktop/PNL/Talleres/python_books/Python - Finance.pdf')
+pagina = doc3.loadPage(0)
+texto = pagina.getText("text")
+print(texto)
+
+- `[10 pts]` Responder: ¿Cuál archivo tiene el mayor número de palabras?
+* Primer paso: convertir archivos pdf a txt
+https://stackoverflow.com/questions/55767511/how-to-extract-text-from-pdf-in-python-3-7
+
+import fitz
+def get_text(C:/Users/Administrador/Desktop/PNL/Talleres/python_books/Python - AWS.pdf: str) -> str: 
+    with fitz.open(C:/Users/Administrador/Desktop/PNL/Talleres/python_books/Python - AWS.pdf) as doc:
+        text = ""
+         for page in doc:
+                text += page.getText().strip()
+                 return text
+                 
+* segundo paso: contar palabras en txt         
+
+
+
