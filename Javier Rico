@@ -47,7 +47,13 @@ def get_text(C:/Users/Administrador/Desktop/PNL/Talleres/python_books/Python - A
                 text += page.getText().strip()
                  return text
                  
-* segundo paso: contar palabras en txt         
+* segundo paso: contar palabras en txt      
+https://pythonexamples.org/python-count-number-of-words-in-text-file/#:~:text=Steps%20to%20Count%20Number%20of%20Words%20in%20Text%20File,-To%20count%20the&text=Read%20the%20text%20using%20read,words%20in%20the%20text%20file.
+
+file = open("C:/Users/Administrador/Desktop/PNL/Talleres/python_books/Python - AWS.txt", "rt")
+data = file.read()
+words = data.split()
+print('Número de palabras en el texto :', len(words))
 
 
 
